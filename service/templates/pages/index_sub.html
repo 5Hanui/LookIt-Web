@@ -24,6 +24,7 @@
                                     <span class="text">전송</span>
                                     <!-- <i class="fas fa-search fa-sm"></i> -->
                                 </button>
+
                             </label>
                         </div>
                         <!-- <textarea name='contents' cols="50" , rows="5" class="form-control form-control-sm"></textarea> -->
@@ -46,10 +47,151 @@
                             <span class="text">전송</span>
                         </button> -->
                     </form>
+<!--                    <div class='excel_down' style="margin-left:48%; margin-top:-46px;">
+                        <button class="btn btn-primary btn-icon-split" >
+                                    <span class="text">엑셀저장</span>
+                        </button>
+                    </div>-->
                 </div>
             </div>
         </div>
     
     </div>
+
+    <!-- 테이블 시작 -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    질문별 응답 결과
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        <br />
+
+                        <!-- 테이블1 시작-->
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">문제번호 \ 응답번호</th>
+                              <th scope="col">①</th>
+                              <th scope="col">②</th>
+                              <th scope="col">③</th>
+                              <th scope="col">④</th>
+                              <th scope="col">⑤</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">1번</th>
+                                {% for elem in myans %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+                                <!--
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td>@mdo</td>
+                              <td>@mdo</td>
+                              <td>@mdo</td>-->
+                            </tr>
+
+                            <tr>
+                              <th scope="row">2번</th>
+                                {% for elem in myans2 %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+
+                            </tr>
+                            <tr>
+                              <th scope="row">3번</th>
+                              {% for elem in myans3 %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                              <th scope="row">4번</th>
+                              {% for elem in myans4 %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <!-- 테이블1 끝-->
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 테이블 끝 -->
+    <!-- 응답별 테이블 -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    개별 응답 결과
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        <br />
+
+                        <!-- 테이블1 시작-->
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">응답자\문제 번호</th>
+                              <th scope="col">1번</th>
+                              <th scope="col">2번</th>
+                              <th scope="col">3번</th>
+                              <th scope="col">4번</th>
+
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">응답자1</th>
+                                {% for elem in myans5 %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+                                <!--
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td>@mdo</td>
+                              <td>@mdo</td>
+                              <td>@mdo</td>-->
+                            </tr>
+
+                            <tr>
+                              <th scope="row">응답자2</th>
+                                {% for elem in myans6 %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+
+                            </tr>
+                            <tr>
+                              <th scope="row">응답자3</th>
+                              {% for elem in myans7 %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+                            </tr>
+
+                          </tbody>
+                        </table>
+
+                        <!-- 테이블1 끝-->
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--응답별 테이블  -->
 </div>
 <!-- /.container-fluid -->

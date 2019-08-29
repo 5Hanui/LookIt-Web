@@ -9,7 +9,8 @@
 from flask import Flask, render_template, request, redirect, url_for, session, make_response, jsonify
 # 서버 시작점에서부터 패키 경로를 따진다.
 import os # 원래는 맨위
-from service.model import selectLogin
+import json
+# from service.model import selectLogin
 # from service.model import insertBbsData, selectBbsList
 from service.DL import dl_folder
 # from service.model import * 하면 예약어 쓸수가 없음 as불가능
@@ -21,6 +22,9 @@ def createApp():
     app.secret_key = 'adfad2321fa34dfasdfadfafdff13131kjjlk12' # 사용자가 많지 않으므로 임의로 사용
     initRoute(app)
     return app
+
+
+
 
 # 라우트 초기화 담당
 def initRoute(app):
@@ -43,9 +47,15 @@ def initRoute(app):
                 file.save(save_path)
                 nmList.append(save_path)
             # path_dir = './service/static/upload'
-            dl_folder()
+            myans = dl_folder()
+
+
+
             #######################################################3
-            return render_template('index.html')
+            return render_template('index.html',myans = myans[0],myans2 = myans[1],myans3 = myans[2],myans4 = myans[3], myans5= myans[4][0], myans6= myans[4][1], myans7= myans[4][2] )
+
+
+
 
 
     # 로그인
@@ -64,14 +74,17 @@ def initRoute(app):
             upw = request.form.get('upw')
             if not uid or not upw:
                 return render_template("alertEx.html", msg='정확하게 입력하세요')
-            else:
-                row = selectLogin(uid,upw)
-                if row: #회원이다
-                    session['uid'] = uid
-                    session['name'] = row['name'] #row에 조회결과 있음//
-                    return redirect(url_for('home')) # url은 직접 하드코딩하지 않는다!! redirect('/')=>XX
-                else: #회원아니다
-                    return render_template("alertEx.html", msg='회원아님')
+
+
+           # else:
+            #    row = selectLogin(uid,upw)
+            #    if row: #회원이다
+            #        session['uid'] = uid
+            #        session['name'] = row['name'] #row에 조회결과 있음//
+            #        return redirect(url_for('home')) # url은 직접 하드코딩하지 않는다!! redirect('/')=>XX
+            #    else: #회원아니다
+            #        return render_template("alertEx.html", msg='회원아님')
+
     
     # 로그아웃
     @app.route('/logout') 
