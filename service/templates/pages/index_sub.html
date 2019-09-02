@@ -1,0 +1,394 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">설문지 인식 솔루션</h1>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    문서 업로드
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        <br />
+                        <div class='file_input'>
+                            <input type='text' readonly='readonly' id='file_route'>
+                            <label>
+                                <input type='file' name="files" id="files" multiple="" directory="" webkitdirectory=""
+                            mozdirectory=""  onchange="javascript:document.getElementById('file_route').value=this.value">
+                                <button class="btn btn-primary btn-icon-split" >
+                                    <span class="text">전송</span>
+                                    <!-- <i class="fas fa-search fa-sm"></i> -->
+                                </button>
+
+                            </label>
+                        </div>
+                        <!-- <textarea name='contents' cols="50" , rows="5" class="form-control form-control-sm"></textarea> -->
+                        <!-- <input type='file' name='files' multiple class="form-control form-control-sm" /> multiple:파일여러개 보낼수 있음 -->
+                        <!-- <input type='text' readonly='readonly' id='file_route'>
+                        <label>
+                            <div class="input-group-append">
+                            <input type="file" class="form-control bg-light border-2" value='폴더선택'>
+                                
+                                <button class="btn btn-primary" type="button">
+                                    <span class="text">전송</span>
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </label> -->
+                        <!-- <input type='file' name="files[]" id="files" multiple="" directory="" webkitdirectory=""
+                            mozdirectory="" />
+                        <br />
+                        <button class="btn btn-primary btn-icon-split">
+                            <span class="text">전송</span>
+                        </button> -->
+                    </form>
+<!--                    <div class='excel_down' style="margin-left:48%; margin-top:-46px;">
+                        <button class="btn btn-primary btn-icon-split" >
+                                    <span class="text">엑셀저장</span>
+                        </button>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <!-- 테이블 시작 -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    질문별 응답 결과
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        <br />
+
+                        <!-- 테이블1 시작-->
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">문제번호 \ 응답번호</th>
+                              <th scope="col">①</th>
+                              <th scope="col">②</th>
+                              <th scope="col">③</th>
+                              <th scope="col">④</th>
+                              <th scope="col">⑤</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">1번</th>
+                                {% for elem in myans %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+                                <!--
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td>@mdo</td>
+                              <td>@mdo</td>
+                              <td>@mdo</td>-->
+                            </tr>
+
+                            <tr>
+                              <th scope="row">2번</th>
+                                {% for elem in myans2 %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+
+                            </tr>
+                            <tr>
+                              <th scope="row">3번</th>
+                              {% for elem in myans3 %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                              <th scope="row">4번</th>
+                              {% for elem in myans4 %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <!-- 테이블1 끝-->
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 테이블 끝 -->
+    <!-- 응답별 테이블 -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    개별 응답 결과
+                </div>
+                <div class="card-body">
+                   <!-- -->
+                   <form method="POST" enctype="multipart/form-data">
+                    <br />
+
+                    <!-- 테이블1 시작-->
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">응답자\문제 번호</th>
+                          <th scope="col">1번</th>
+                          <th scope="col">2번</th>
+                          <th scope="col">3번</th>
+                          <th scope="col">4번</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                      <!--2차원 예시 시작2 -->
+                       {% for elem in myans8 %}
+
+                       <tr>
+
+                          <th scope="row">응답자</th>
+                           {% for elem2 in elem %}
+                          <td>{{elem2}}</td>
+                            {% endfor %}
+                        </tr>
+
+                       {% endfor %}
+
+                      </tbody>
+                    </table>
+
+                    <!-- 테이블1 끝-->
+
+
+                </form>
+
+                   <!-- -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--응답별 테이블  -->
+</div>
+<!-- /.container-fluid -->
+
+<!-- /.container-fluid -->
+<!-- START chart container -->
+<div class="container-fluid">
+  <!-- Bar Chart -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+    </div>
+    <div class="card-body">
+      <div class="chart-bar">
+        <canvas id="myBarChart"></canvas>
+      </div>
+      <hr> Styling for the bar chart can be found in the
+      <code>/js/demo/chart-bar-demo.js</code> file.
+    </div>
+  </div>
+    <!-- Page Heading -->
+    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">통계</h1>
+        </div> -->
+
+
+    <!-- <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+
+                <div class="card-header">
+                    통계
+                </div>
+
+                <div class="card-body">
+                    <canvas id="myChart" width="600" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>
+<!-- END -->
+
+<!-- <script>
+    // Global parameters:
+    // do not resize the chart canvas when its container does (keep at 600x400px)
+    Chart.defaults.global.responsive = false;
+
+    // define the chart data
+    var chartData = {
+      labels : [{% for item in labels %}
+                 "{{item}}",
+                {% endfor %}],
+      datasets : [{
+          label: '{{ legend }}',
+          fill: true,
+          lineTension: 0.1,
+          backgroundColor: "rgb(255,255,255)",
+          borderColor: "#dddfeb",
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: "rgba(75,192,192,1)",
+          pointBackgroundColor: "#fff",
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "rgba(75,192,192,1)",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data : [{% for item in mydict %}
+                    {{item}},
+                  {% endfor %}],
+          spanGaps: false
+      }]
+    }
+
+    // get chart canvas
+    var ctx = document.getElementById("myChart").getContext("2d");
+
+    // create the chart using the chart canvas
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: chartData,
+    });
+  </script>
+
+
+</script> -->
+<script src="/static/vendor/chart.js/Chart.min.js"></script>
+<script>
+
+function number_format(number, decimals, dec_point, thousands_sep) {
+  // *     example: number_format(1234.56, 2, ',', ' ');
+  // *     return: '1 234,56'
+  number = (number + '').replace(',', '').replace(' ', '');
+  var n = !isFinite(+number) ? 0 : +number,
+    prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+    sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+    dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+    s = '',
+    toFixedFix = function(n, prec) {
+      var k = Math.pow(10, prec);
+      return '' + Math.round(n * k) / k;
+    };
+  // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+  s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+  if (s[0].length > 3) {
+    s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+  }
+  if ((s[1] || '').length < prec) {
+    s[1] = s[1] || '';
+    s[1] += new Array(prec - s[1].length + 1).join('0');
+  }
+  return s.join(dec);
+}
+
+// Bar Chart Example
+var ctx = document.getElementById("myBarChart");
+var myBarChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["1번", "2번", "3번", "4번", "5번"],
+    datasets: [{
+      label: "Total : ",
+      backgroundColor: "#4e73df",
+      hoverBackgroundColor: "#2e59d9",
+      borderColor: "#4e73df",
+      data : [{% for item in myarr %}
+        {{ item }},
+      {% endfor %}],
+
+      // data: [3,5,7,4,5]
+
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    layout: {
+      padding: {
+        left: 10,
+        right: 25,
+        top: 25,
+        bottom: 0
+      }
+    },
+    scales: {
+      xAxes: [{
+        // time: {
+        //   unit: 'month'
+        // },
+        gridLines: {
+          display: false,
+          drawBorder: false
+        },
+        ticks: {
+          maxTicksLimit: 6,
+          fontSize : 20
+        },
+        maxBarThickness: 25,
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 30,
+          maxTicksLimit: 5,
+          padding: 10,
+          fontSize : 20,
+          // Include a dollar sign in the ticks
+          callback: function(value, index, values) {
+            return number_format(value);
+          }
+        },
+        gridLines: {
+          color: "rgb(234, 236, 244)",
+          zeroLineColor: "rgb(234, 236, 244)",
+          drawBorder: false,
+          borderDash: [2],
+          zeroLineBorderDash: [2]
+        }
+      }],
+    },
+    legend: {
+      display: false
+    },
+    tooltips: {
+      titleMarginBottom: 10,
+      titleFontColor: '#6e707e',
+      titleFontSize: 25,
+      bodyFontSize: 20,
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+      callbacks: {
+        label: function(tooltipItem, chart) {
+          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+          return datasetLabel + number_format(tooltipItem.yLabel);
+        }
+      }
+    },
+  }
+});
+</script>

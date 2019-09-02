@@ -1,0 +1,13 @@
+<script>
+    // 반드시 html구성요소를 채울 필요 없다.
+    // 알림창 띄우기
+    alert("{{msg}}"); //값을 찍을 때 중괄호 2개
+    // 되돌아 가기 //url랜더링할 때 던지는 값. 안보내면 되돌아가기.
+    {% if url: %}
+        {# url이 존재하면 그 페이지로 이동 #}
+        document.location.href = "{{url}}"
+    {% else: %}
+        {# alertEx.html 랜더링시 url이 없으면 이전페이지 이동 #}
+        history.back();
+    {% endif %}
+</script>

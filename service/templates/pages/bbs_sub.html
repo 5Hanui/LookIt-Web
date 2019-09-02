@@ -1,0 +1,76 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">자료실</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    자료실 리스트
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info"
+                        style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>순서</th>
+                                <th>제목</th>
+                                <th>파일</th>
+                                <th>등록일</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for trade in rows: %}
+                            <tr role="row" class="odd">
+                                <td>{{trade.get('id')}}</td>
+                                <td>{{trade.get('title')}}</td>
+                                <td>
+                                    {% for file in trade.get('path').split('|'):  %}
+                                        <a href="{{ file }}">
+                                            <img src="{{ file }}" width="50"/>
+                                        </a>
+                                    {% endfor%}
+                                </td>
+                                <td>{{trade.get('regdate')}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# 컨텐츠 한 세트 #}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    업로드
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        <select name='title' class="form-control form-control-sm">
+                            <option value='테스1'>테스1</option>
+                            <option value='테스2'>테스2</option>
+                        </select>
+                        <br />
+                        <textarea name='contents' cols="50" , rows="5" class="form-control form-control-sm"></textarea>
+                        <input type='file' name='files' multiple class="form-control form-control-sm" /> <!--multiple:파일여러개 보낼수 있음 -->
+                        <!-- <input type='file' name="files[]" id="files" multiple="" directory="" webkitdirectory="" mozdirectory="" /> -->
+                        <br />
+                        <button class="btn btn-primary btn-icon-split">
+                            <span class="text">전송</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+</div>
