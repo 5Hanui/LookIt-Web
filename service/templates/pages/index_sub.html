@@ -137,6 +137,7 @@
                     개별 응답 결과
                 </div>
                 <div class="card-body">
+<<<<<<< HEAD
                    <!-- -->
                    <form method="POST" enctype="multipart/form-data">
                     <br />
@@ -177,6 +178,58 @@
                 </form>
 
                    <!-- -->
+=======
+                    <form method="POST" enctype="multipart/form-data">
+                        <br />
+
+                        <!-- 테이블1 시작-->
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">응답자\문제 번호</th>
+                              <th scope="col">1번</th>
+                              <th scope="col">2번</th>
+                              <th scope="col">3번</th>
+                              <th scope="col">4번</th>
+
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">응답자1</th>
+                                {% for elem in myans5 %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+                                <!--
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td>@mdo</td>
+                              <td>@mdo</td>
+                              <td>@mdo</td>-->
+                            </tr>
+
+                            <tr>
+                              <th scope="row">응답자2</th>
+                                {% for elem in myans6 %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+
+                            </tr>
+                            <tr>
+                              <th scope="row">응답자3</th>
+                              {% for elem in myans7 %}
+                              <td>{{elem}}</td>
+                                {% endfor %}
+                            </tr>
+
+                          </tbody>
+                        </table>
+
+                        <!-- 테이블1 끝-->
+
+
+                    </form>
+>>>>>>> f0dd318fa0bdea681d302f6ead0429824033838c
                 </div>
             </div>
         </div>
@@ -184,6 +237,7 @@
     </div>
     <!--응답별 테이블  -->
 </div>
+<<<<<<< HEAD
 <!-- /.container-fluid -->
 
 <!-- /.container-fluid -->
@@ -392,3 +446,6 @@ var myBarChart = new Chart(ctx, {
   }
 });
 </script>
+=======
+<!-- /.container-fluid -->
+>>>>>>> f0dd318fa0bdea681d302f6ead0429824033838c
